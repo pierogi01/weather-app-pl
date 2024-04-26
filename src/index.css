@@ -1,13 +1,176 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  font-family: 'Exo 2', sans-serif;
+  margin: 20px auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root{
+  height: 600px;
+  width: 400px;
+  margin: 20px auto;
+  background-color: #F3ECE5;
+  border-radius: 5%;
+  
+}
+
+.nav{
+  margin-bottom: 20px;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+  background-color: #B4C794;
+  display: grid;
+  max-width: 100%;
+  max-height: 5rem;
+  grid-template-columns: (5, 1fr);
+  grid-template-rows: 3;
+  grid-template-areas: 
+      "h h h h h"
+      "c c c c c"
+      "f f f f f";
+  justify-content: space-evenly;
+}
+.nav--title{
+  grid-column: 1 / 2;
+  margin-right: 5rem;
+  margin-left: 20px;
+}
+.nav--buttons{
+  padding-left: -2rem;
+  margin: 0 10px;
+
+}
+.searchbar{ 
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 3rem;
+  column-gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.searchbar--input{
+  min-width: 15rem;
+  min-height: 2rem;
+  border-radius: 30px;
+  padding: 0 20px;
+  border: solid 1px #9A9F3F;
+  box-shadow: 0 0 3px #9A9F3F;
+}
+input:focus{
+  border: solid 1px lightcyan;
+  box-shadow: 0 0 3px #B4C794;
+  outline: none;
+}
+.searchbar--search{
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 3rem;
+  padding: 0.3rem;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 3px #9A9F3F;
+}
+.searchbar--search:active{
+  border: solid 1px lightcyan;
+  box-shadow: 0 0 3px #9A9F3F;
+  outline: none;
+}
+.weather--tab{
+  text-align: center;
+  
+}
+.weather--icon{
+  width: 6rem;
+  background-color: rgba(180, 199, 148, 1);
+  border-radius: 50%;
+}
+.weather--tab--degrees{
+  font-size: 48px;
+  margin: 0;
+  color: white;
+  text-shadow: 0px 0px 3px #468669;
+}
+.weather--tab--city{
+  font-size: 24px;
+  margin: 0;
+  color: white;
+  text-shadow: 0px 0px 3px #468669;
+}
+
+label{
+  width: 90px;
+  margin: 0px;
+  display: block;
+  text-decoration: underline;
+  color: #B4C794;
+  font-weight: bold;
+}
+.weather--min--max--temp{
+  display:inline-flex;
+  
+}
+.weather--block{
+  margin: 10px;
+  border: solid 1px #B4C794;
+  border-radius: 10px;
+  padding: 10px;
+  
+}
+.weather--min--max{
+  margin: 0;
+  font-size: 22px;
+  color: white;
+  text-shadow: 0px 0px 3px #468669;
+  font-weight: bold;
+}
+.weather--more--info{
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
+  width: 200px;
+  padding: 10px 15px;
+}
+.weather--more--i{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #468669;
+}
+#forecast--root{
+  width: 23rem;
+  display: inline-flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+}
+.forecast > p {
+  margin: 0;
+  color: #6fa063;
+  text-shadow: 0px 0px 2px #B4C794;
+}
+.forecast--icon{
+  width: 40px;
+  height: 40px;
+  background-color: #ccdbb2;
+  border-radius: 50%;
+  margin: 5px auto;
+}
+.footer{
+  clear: both;
+  background-color: #B4C794;
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  margin-top: 34px;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  font-size: small;
+}
+.forecast--dniTygonia{
+  font-size: 11px;
 }

@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import Searchbar from './components/Searchbar';
+import {Route, Routes, useNavigate} from "react-router-dom";
+import Weathertab from './components/Weathertab';
+import NotFound from "./components/NotFound";
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [cityInput, setCityInput] = useState([])
+  const navigate = useNavigate()
+  
+  function handleChange(event){
+      setCityInput(prevCity => {
+        return {
+          ...prevCity,
+          [event.target.name]: event.target.value
+        }
+      })
+      localStorage.setItem('value', event.target.value)  
+  }
+  function handleSubmit(event){
+    event.preventDefault()
+    navigate('/')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route path="/search" element={<Searchbar onChange={handleChange} onSubmit={handleSubmit}/>} />
+          <Route path="/" element={<Weathertab city={localStorage.getItem('value')}/>} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+    </Routes>
   );
 }
 
